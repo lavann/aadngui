@@ -1,0 +1,64 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item"><a href="#" class="nav-link">nav link 1</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">nav link 2</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">nav link 3</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">nav link 4</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav flex-row justify-content-between ml-auto">
+                    <li>
+                        <button class="btn btn-primary" *ngIf="!isLoggedIn" (click)="login()">Login</button>
+                        <button class="btn btn-primary" *ngIf="isLoggedIn" (click)="logout()">Logout</button>
+                    </li>
+                </ul>
+            </nav>
+            <div class="jumbotron">
+                <h2>
+                    Hello, {{profile?.displayName}}
+                </h2>
+                <h6 class="card-subtitle mb-2 text-muted" *ngIf="isLoggedIn">Logged In</h6>
+
+                <p>
+                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                    mauris
+                    condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
+                    euismod. Donec sed odio dui.
+                </p>
+                <p>
+                    <a class="btn btn-primary btn-large" href="#">Learn more</a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+    <div class="row" *ngIf="isLoggedIn">
+        <div class="col-md-12">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5>Get Data</h5>
+                    <p> Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo,
+                        tortor
+                        mauris
+                        condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
+                        mollis
+                        euismod. Donec sed odio dui.</p>
+                    <button class="btn btn-primary" (click)="getWeather()">Get Weather</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <section>
+                <pre>
+                {{todos | json}}
+            </pre>
+            </section>
+        </div>
+    </div>
+</div>
